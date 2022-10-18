@@ -8,8 +8,7 @@ const getCrypto = () => {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			let cryptoData = JSON.parse(xhr.responseText);
 			table.innerHTML = "";
-			// formatCrypto(cryptoData);
-			// Do all formatting in function formatCrypto
+
 			for (coin of cryptoData.data) {
 				let tr = document.createElement("tr");
 				formatCrypto(coin, tr);
@@ -28,11 +27,16 @@ const formatCrypto = (coinData, row) => {
 	let rank = document.createElement("td");
 	rank.textContent = coinData["rank"];
 
+	let symbol = document.createElement("span");
+	symbol.textContent = coinData["symbol"];
+
 	let name = document.createElement("td");
-	name.textContent = `${coinData["name"]} `;
+	name.textContent = `${coinData["name"]}`;
 
 	let priceUSD = document.createElement("td");
-	priceUSD.textContent = `$${thousandsSeparator(parseFloat(coinData["price_usd"]))}`;
+	priceUSD.textContent = `$${thousandsSeparator(
+		parseFloat(coinData["price_usd"])
+	)}`;
 
 	let perChange1H = document.createElement("td");
 	perChange1H.textContent = `${coinData["percent_change_1h"]}%`;
@@ -47,19 +51,19 @@ const formatCrypto = (coinData, row) => {
 	perChange7D = changePercent(perChange7D);
 
 	let marketCap = document.createElement("td");
-	marketCap.textContent = `$${thousandsSeparator(parseFloat(coinData["market_cap_usd"]).toFixed(0))}`;
+	marketCap.textContent = `$${thousandsSeparator(
+		parseFloat(coinData["market_cap_usd"]).toFixed(0)
+	)}`;
 
 	let volume24h = document.createElement("td");
-	volume24h.textContent = `$${thousandsSeparator(parseFloat(coinData["volume24"]).toFixed(0))}`;
+	volume24h.textContent = `$${thousandsSeparator(
+		parseFloat(coinData["volume24"]).toFixed(0)
+	)}`;
 
 	let circulation = document.createElement("td");
-	circulation.textContent = `${thousandsSeparator(parseFloat(coinData["csupply"]).toFixed(0))} `;
-	console.log(typeof coinData['csupply'],coinData["csupply"]);
-
-	let symbol = document.createElement("span");
-	symbol.textContent = coinData["symbol"];
-	name.appendChild(symbol);
-	circulation.appendChild(symbol);
+	circulation.textContent =
+		`${thousandsSeparator(parseFloat(coinData["csupply"]).toFixed(0))} ` +
+		symbol.textContent;
 
 	row.appendChild(rank);
 	row.appendChild(name);
@@ -73,7 +77,6 @@ const formatCrypto = (coinData, row) => {
 };
 
 const changePercent = (percent) => {
-	// Use ternary when it's only 2 options
 	if (parseFloat(percent.textContent) > 0) {
 		percent.textContent = `▲${percent.textContent}`;
 		percent.classList.add("positive");
@@ -97,6 +100,3 @@ getCrypto();
 setInterval(() => {
 	getCrypto();
 }, 30000);
-
-// Separate AJAX in a different file
-//

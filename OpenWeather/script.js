@@ -36,25 +36,22 @@ input.addEventListener("keyup", (e) => {
  */
 
 const formatWeather = (data) => {
-	// console.log(data.list);
 	let arr = [];
 	for (i = 0; i < data.list.length; i += 8) {
 		arr.push(data.list[i]);
 	}
 
-	// console.log(arr);
-
 	for (weatherInfo of arr.keys()) {
 		if (weatherInfo === 0) {
 			let city = document.createElement("h1");
+			city.id = "city";
 			city.textContent = `${data.city["name"]}`;
 			weatherData[weatherInfo].appendChild(city);
 		}
 
 		let day = document.createElement("h2");
+		day.classList.add("day");
 		day.textContent = `${days[new Date(arr[weatherInfo]["dt_txt"]).getDay()]}`;
-		// console.log(new Date(arr[weatherInfo]["dt_txt"]));
-		// console.log(new Date(arr[weatherInfo]["dt_txt"]).getDay());
 
 		let img = document.createElement("img");
 		img.src = `http://openweathermap.org/img/wn/${arr[weatherInfo].weather[0].icon}@2x.png`;
@@ -65,9 +62,11 @@ const formatWeather = (data) => {
 		temp.textContent = `${arr[weatherInfo].main["temp"]}°C`;
 
 		let weatherDes = document.createElement("p");
+		weatherDes.classList.add("details");
 		weatherDes.textContent = `${arr[weatherInfo].weather[0].description}`;
 
 		let table = document.createElement("table");
+		table.id = "main-details"
 		table.innerHTML = `<tr><td>Wind: ${arr[weatherInfo].wind["speed"]} m/s</td><td>Pressure: ${arr[weatherInfo].main["pressure"]} hPa</td></tr><tr><td>Humidity: ${arr[weatherInfo].main["humidity"]}%</td><td>Cloudiness: ${arr[weatherInfo].clouds["all"]}%</td></tr>`;
 
 		weatherData[weatherInfo].appendChild(day);
