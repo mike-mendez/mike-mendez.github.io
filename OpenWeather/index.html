@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<script defer async src="./ajax.js"></script>
-		<script defer async src="./script.js"></script>
-		<title>5 Day Weather Forecast</title>
-	</head>
-	<body>
-		<main>
-			<header><h1>🌞5 Day Weather Forecast☃️</h1></header>
-			<input
-				type="text"
-				name="city input"
-				id="city-input"
-				placeholder="Search for a city..."
-			/>
-			<div id="weather-container">
-				<div id="current-day-container" class="weather-data"></div>
-				<div id="days-container">
-					<div class="day-container weather-data"></div>
-					<div class="day-container weather-data"></div>
-					<div class="day-container weather-data"></div>
-					<div class="day-container weather-data"></div>
-				</div>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css" />
+	<script defer async src="./ajax.js"></script>
+	<script defer async src="./script.js"></script>
+	<title>5 Day Weather Forecast</title>
+</head>
+<body>
+	<main>
+		<header>
+			<h1>🌞5 Day Weather Forecast☃️</h1>
+		</header>
+		<input type="text" name="city input" id="city-input" placeholder="Search for a city..." />
+		<div id="weather-container">
+			<div id="current-day-container" class="weather-data"></div>
+			<div id="days-container">
+				<div class="day-container weather-data"></div>
+				<div class="day-container weather-data"></div>
+				<div class="day-container weather-data"></div>
+				<div class="day-container weather-data"></div>
 			</div>
-		</main>
-		<footer>© 2022 Mike Mendez. All rights reserved.</footer>
-	</body>
+		</div>
+	</main>
+	<footer>© 2022 Mike Mendez. All rights reserved.</footer>
+</body>
 </html>
