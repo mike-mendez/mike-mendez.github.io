@@ -1,0 +1,112 @@
+* {
+	box-sizing: border-box;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body {
+	background-color: #3485c2;
+}
+
+header > h1 {
+	color: whitesmoke;
+	margin: 20px;
+	text-align: center;
+	text-shadow: 2px 2px 2px orange;
+}
+
+main {
+	background-color: #3485c2;
+	margin: auto;
+	height: 100vh;
+	width: 50vw;
+}
+
+input {
+	font-size: 2rem;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 20px;
+	border-radius: 50px;
+	border: 2px solid #bdbdbd;
+	padding-left: 14px;
+	box-shadow: 1px 1px 1px orange;
+}
+
+table {
+	border-spacing: 1rem 0.5rem;
+	margin: 0 auto;
+}
+
+footer {
+	color: #fff;
+	margin: 1rem;
+	text-align: center;
+}
+
+#weather-container {
+	height: 100%;
+	margin: 1rem 1rem;
+	visibility: hidden;
+}
+
+#current-day-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	height: 45%;
+}
+
+#days-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1rem auto 0 auto;
+}
+
+#city {
+	color: #3485c2;
+	font-size: 4rem;
+	text-shadow: 2px 2px 2px orange;
+}
+
+#main-details {
+	font-size: 1.2rem;
+	text-shadow: 1px 1px #3485c2;
+}
+
+.day-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 2rem;
+}
+
+.weather-data {
+	background-color: #d9d9d9;
+	border-radius: 20px;
+}
+
+.day {
+	font-size: 1rem;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.temp {
+	color: #3485c2;
+	font-size: 1.5rem;
+	font-weight: 900;
+}
+
+.details {
+	font-size: 1.2rem;
+	font-weight: 900;
+	margin-top: 1rem;
+	text-shadow: 1px 1px gainsboro;
+}
